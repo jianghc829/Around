@@ -1,5 +1,5 @@
 FROM golang:1.13.4
-MAINTAINER jianghc829@gmail.com
+LABEL Author="jianghc829@gmail.com"
 
 WORKDIR /go/src/around
 ADD . /go/src/around
@@ -14,4 +14,3 @@ RUN go get github.com/olivere/elastic
 
 EXPOSE 8080
 CMD ["/usr/local/go/bin/go", "run", "main.go", "user.go", "vision.go"]
-

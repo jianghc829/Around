@@ -25,17 +25,17 @@ func main() {
 	}
 	if !exists {
 		mapping := `{
-                        "mappings": {
-                                "properties": {
-                                        "user": { "type": "keyword", "index": false },
-                                        "message": { "type": "keyword", "index": false },
-                                        "location": { "type": "geo_point" },
-                                        "url": { "type": "keyword", "index": false },
-                                        "type": { "type": "keyword", "index": false },
-                                        "face": { "type": "float" }
-                                }
-                        }
-                }`
+			"mappings": {
+				"properties": {
+					"user":		{ "type": "keyword", "index": false },
+					"message":	{ "type": "keyword", "index": false },
+					"location": { "type": "geo_point" },
+					"url":		{ "type": "keyword", "index": false },
+					"type":		{ "type": "keyword", "index": false },
+					"face":		{ "type": "float" }
+				}
+			}
+		}`
 		_, err = client.CreateIndex(POST_INDEX).Body(mapping).Do(context.Background())
 		if err != nil {
 			panic(err)
@@ -49,15 +49,15 @@ func main() {
 
 	if !exists {
 		mapping := `{
-                        "mappings": {
-                                "properties": {
-                                        "username": {"type": "keyword"},
-                                        "password": {"type": "keyword", "index": false},
-                                        "age":      {"type": "long", "index": false},
-                                        "gender":   {"type": "keyword", "index": false}
-                                }
-                        }
-                }`
+			"mappings": {
+				"properties": {
+					"username": {"type": "keyword"},
+					"password": {"type": "keyword", "index": false},
+					"age":      {"type": "long", "index": false},
+					"gender":   {"type": "keyword", "index": false}
+				}
+			}
+		}`
 		_, err = client.CreateIndex(USER_INDEX).Body(mapping).Do(context.Background())
 		if err != nil {
 			panic(err)
@@ -65,4 +65,5 @@ func main() {
 	}
 
 	fmt.Println("Post index is created")
+	fmt.Println("User index is created")
 }
